@@ -14,7 +14,7 @@ async function selectuser() {
     let sql = `select * from ss`;
 
     const list = await connection.queryAsync(sql, [5]);
-    console.log(list);
+    // console.log(list);
     await connection.endAsync();
     return list;
 };
@@ -46,3 +46,4 @@ async function selectuser() {
 
 // adduser(user);
 selectuser();
+module.exports = { selectuser };
