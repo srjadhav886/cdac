@@ -19,12 +19,12 @@ async function selectuser() {
     return list;
 };
 
-async function adduser() {
+async function adduser(user) {
     const connection = mysql.createConnection(dbinfo);
     await connection.connectAsync();
-    let sql = `insert into ss (username,password) values(?,?)`;
-    await connection.queryAsync(sql, [user.username, user.password]);
-    console.log("safhasuilasn");
+    let sql = `insert into ss (username,password,email) values(?,?,?)`;
+    await connection.queryAsync(sql, [user.username, user.password, user.email]);
+    // console.log("safhasuilasn");
     await connection.endAsync();
 };
 
@@ -37,7 +37,7 @@ async function adduser() {
 //     await connection.endAsync();
 // };
 
-const user = { username: "sachin", password: "srjadhav" };
+// /
 // const user = { username: "anita", password: "rjadhav" };
 // const user = { username: "rajhans", password: "sjadhav" };
 // const user = { username: "vaishnavi", password: "jadhav" };
@@ -45,6 +45,6 @@ const user = { username: "sachin", password: "srjadhav" };
 // checkConnection();
 
 
-adduser(user);
+// adduser(user);
 selectuser();
 module.exports = { selectuser, adduser };
