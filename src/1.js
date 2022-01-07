@@ -22,8 +22,8 @@ async function selectuser() {
 async function adduser(user) {
     const connection = mysql.createConnection(dbinfo);
     await connection.connectAsync();
-    let sql = `insert into ss (username,password,email) values(?,?,?)`;
-    await connection.queryAsync(sql, [user.username, user.password, user.email]);
+    let sql = `insert into ss (name,sname,email,salary) values(?,?,?,?)`;
+    await connection.queryAsync(sql, [user.name, user.sname, user.email, user.salary]);
     // console.log("safhasuilasn");
     await connection.endAsync();
 };
